@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../src/styles/styles.css";
 import Pet from "./Pet";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import SearchParams from "./SearchParams";
 import Details from "./Details";
@@ -21,7 +21,7 @@ const queryClient = new QueryClient({
 function App() {
   const adoptedPet = useState(null);
   return (
-    <BrowserRouter>
+    <HashRouter>
       <QueryClientProvider client={queryClient}>
         <AdoptedPetContext.Provider value={adoptedPet}>
         <header>
@@ -33,7 +33,7 @@ function App() {
         </Routes>
         </AdoptedPetContext.Provider> 
       </QueryClientProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
